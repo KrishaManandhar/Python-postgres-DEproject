@@ -8,16 +8,16 @@ import psycopg2
 
 ## Database connection requirements
 
-hostname = "$localhost_name"
-databasename = "$database_name"
-username =  "$username"
-pwd = "$password"
-port_id = "$port_number"
+hostname = "$localhost_name" <br>
+databasename = "$database_name" <br>
+username =  "$username" <br>
+pwd = "$password" <br>
+port_id = "$port_number"<br>
 
 ## SQL Query Used are :
 
- --> Create database DEproject1
- --> Create table customer
- --> Insert 
- --> Update 
- --> Delete 
+ --> Create database DEproject1<br>
+ --> Create table customer<br>
+ --> Insert <br>
+ --> Update <br>
+ --> Delete <br>
