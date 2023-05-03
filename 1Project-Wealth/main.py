@@ -4,13 +4,13 @@ import pandas as pd
 # hostname = "localhost"
 # database = "postgres"
 # username = "postgres"
-# pwd = "admin987"
+# pwd = "******"
 # port_id = 5432
 
 def create_database():
     try :
         #Connect to default databasse i.e "postgres"
-        conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=admin987 port=5432")
+        conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=****** port=5432")
         conn.set_session(autocommit=True)
         cur = conn.cursor()
 
@@ -101,11 +101,16 @@ year_1996, year_1997, year_1998, year_1999,
 year_2000, year_2001, year_2002, year_2003, year_2004, year_2005, year_2006, year_2007, year_2008,
 year_2009, year_2010, year_2012, year_2013, year_2014, year_2015, year_2016, year_2017, year_2018)
 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
-# for i, row in AccountsData_columns.iterrows():
-#     cur.execute(accounts_data_insert_query, list(row))
-# conn.commit()
+
+for i, row in AccountsData_columns.iterrows():
+    cur.execute(accounts_data_insert_query, list(row))
+conn.commit()
 
 accounts_series_insert_query ="INSERT INTO accountseries(series_code, topic, series_name, long_definition) VALUES (%s,%s,%s,%s)"
-# for i, row in AccountsSeries_columns.iterrows():
-#     cur.execute(accounts_series_insert_query, list(row))
-# conn.commit()
+for i, row in AccountsSeries_columns.iterrows():
+    cur.execute(accounts_series_insert_query, list(row))
+    
+conn.commit()
+
+cur.close()
+conn.close()
